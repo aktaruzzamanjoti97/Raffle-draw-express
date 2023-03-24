@@ -90,11 +90,11 @@ class MyDB {
      */
     deleteById(ticketId) {
         const index = this.tickets.findIndex((ticket) => ticket.id === ticketId);
-        if (index) {
+        if (index !== -1) {
             this.tickets.splice(index, 1);
             return true
         } else {
-            false
+            return false
         }
 
     }
@@ -109,19 +109,11 @@ class MyDB {
         let index = 0;
         while (index < winnerCount) {
             let winnerIndex = Math.floor(Math.random() * this.tickets.length);
-            console.log("Index", winnerIndex);
             if (!winnerIndexes.includes(winnerIndex)) {
                 winnerIndexes[index++] = winnerIndex;
                 continue;
             }
         }
-        // for (let i = 0; indexes.length; i++) {
-        //     let index = Math.floor(Math.random() * this.tickets.length);
-        //     while (indexes.includes(index)) {
-        //         index = Math.floor(Math.random() * this.tickets.length);
-        //     }
-        //     indexes.push(index);
-        // }
         const winners = winnerIndexes.map((index) => this.tickets[index]);
         return winners;
     }

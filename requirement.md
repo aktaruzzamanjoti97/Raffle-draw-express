@@ -9,7 +9,20 @@
 - raffle draw
 
 Ticket:
+
 - number (unique)
 - username
 - price
 - timestamp
+
+Routes:
+
+- /tickets/t/:ticketId - GET find single ticket
+- /tickets/t/:ticketId - PATCH update ticket by id
+- /tickets/t/:ticketId - DELETE delete ticket by id
+- /tickets/t/:username - GET find tickets for a given user
+- /tickets/u/:username - PATCH update tickets for a given user
+- /tickets/u/:username DELETE delete all tickets for a given user
+- /tickets/sell - create tickets
+- /tickets/draw
+- /tickets -find all tickets
